@@ -48,10 +48,9 @@ def first_hoop():
     sendmsg('forward 200',4)
 
 
-
-
-#def second_hoop():
-
+def second_hoop():
+    sendmsg('up 50',4)
+    sendmsg('go 200 200 100 20 m2',4)
 #def third_hoop():
 
 print("\nKyle Rocco & Sullivan Abegg")
@@ -69,8 +68,9 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 
-        first_hoop()
+        #first_hoop()
 
+        second_hoop()
         sendmsg('land')
 
         print('\nGreat Flight!!!')
