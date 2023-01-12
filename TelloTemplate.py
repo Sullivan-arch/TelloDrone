@@ -72,9 +72,9 @@ try:
 
         #firsthoop
         sendmsg('up 35' , 10)
-        sendmsg('forward 200', 10)
+        sendmsg('forward 180', 10)
         #secondhoop
-        sendmsg('go 250 -10 80 50', 10)
+        sendmsg('go 200 10 70 50', 10)
 
         sendmsg('land')
 
