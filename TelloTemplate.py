@@ -72,10 +72,11 @@ try:
 
         #firsthoop
         sendmsg('up 35' , 10)
-        sendmsg('forward 180', 10)
+        #sendmsg('forward 180', 10)
         #secondhoop
-        sendmsg('go 200 10 70 50', 10)
+        #sendmsg('go 200 10 70 50', 10)
 
+        sendmsg('curve 25 -75 0 -75 25 0 20', 10)
         sendmsg('land')
 
         print('\nGreat Flight!!!')
