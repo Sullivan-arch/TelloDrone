@@ -47,7 +47,7 @@ def first_hoop():
 
 
 def second_hoop():
-    sendmsg('go 75 0 75 10', 10)
+    sendmsg('go 250 0 75 10', 10)
 
 
 # def thirdHoop():
@@ -68,11 +68,13 @@ try:
         print("\nStarting Drone!\n")
 
         sendmsg('command', 0)
-        sendmsg('takeoff')
+        sendmsg('takeoff', 10)
 
-        first_hoop()
-
-        second_hoop()
+        #firsthoop
+        sendmsg('up 35' , 10)
+        sendmsg('forward 200', 10)
+        #secondhoop
+        sendmsg('go 250 -10 80 50', 10)
 
         sendmsg('land')
 
