@@ -4,14 +4,11 @@
 
 import threading, socket, sys, time, subprocess
 
-
 # GLOBAL VARIABLES DECLARED HERE....
 host = ''
 port = 9000
-locaddr = (host,port)
-tello_address = ('192.168.10.1', 8889) # Get the Tello drone's address
-
-
+locaddr = (host, port)
+tello_address = ('192.168.10.1', 8889)  # Get the Tello drone's address
 
 # Creates a UDP socketd
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -26,15 +23,16 @@ def recv():
             data, server = sock.recvfrom(1518)
             print(data.decode(encoding="utf-8"))
         except Exception:
-            print ('\n****Keep Eye on Drone****\n')
+            print('\n****Keep Eye on Drone****\n')
             break
 
 
-def sendmsg(msg, sleep = 6):
+def sendmsg(msg, sleep=6):
     print("Sending: " + msg)
     msg = msg.encode(encoding="utf-8")
     sock.sendto(msg, tello_address)
     time.sleep(sleep)
+
 
 # recvThread create
 recvThread = threading.Thread(target=recv)
@@ -44,22 +42,26 @@ recvThread.start()
 # CREATE FUNCTIONS HERE....
 
 def first_hoop():
-    sendmsg('up 50',4)
-    sendmsg('forward 200',4)
+    sendmsg('up 35')
+    sendmsg('forward 200', 10)
 
 
 def second_hoop():
-    sendmsg('up 50',4)
-    sendmsg('go 200 200 100 20 m2',4)
-#def third_hoop():
+    sendmsg('go 75 0 75 10', 10)
 
-print("\nKyle Rocco & Sullivan Abegg")
-print("Program Name:Drone Comp ")
-print("Date:1/10/2023 ")
+
+# def thirdHoop():
+
+
+# def lastHoop():
+
+
+print("\nKyle Rocco and Sullivan Abegg")
+print("Program Name: Drone Comp ")
+print("Date: 1.10.23")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 ready = input('\nAre you ready to take flight: ')
-
 
 try:
     if ready.lower() == 'yes':
@@ -68,9 +70,10 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 
-        #first_hoop()
+        first_hoop()
 
         second_hoop()
+
         sendmsg('land')
 
         print('\nGreat Flight!!!')
