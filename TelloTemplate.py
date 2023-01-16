@@ -68,7 +68,8 @@ try:
         print("\nStarting Drone!\n")
 
         sendmsg('command', 0)
-        sendmsg('battery?')
+        sendmsg('battery?', 10)
+        sendmsg('streamon', 10)
         sendmsg('takeoff', 10)
 
         #firsthoop
@@ -82,7 +83,7 @@ try:
         sendmsg('forward 125', 10)
         #fourthhoop
         sendmsg('go 180 0 -70 50', 10)
-        sendmsg('flip b')
+
         sendmsg('land')
 
 
