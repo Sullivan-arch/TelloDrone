@@ -30,7 +30,7 @@ def recv():
             break
 
 
-def sendmsg(msg, sleep = 6):
+def sendmsg(msg, sleep = 8):
     print("Sending: " + msg)
     msg = msg.encode(encoding="utf-8")
     sock.sendto(msg, tello_address)
@@ -41,20 +41,28 @@ recvThread = threading.Thread(target=recv)
 recvThread.start()
 
 
-# Square Function
+#Sqaure Function
 def square():
     for i in range(4):
         sendmsg('forward 100')
         sendmsg('cw 90')
 
+def curve_circle():
+    sendmsg('curve 25 25 0 -75 100 0 30', 12)
+
+    sendmsg('curve -75 100 0 25 25 0 30', 12)
 
 
-# Triangle Function
+    #Triangle Function
+def triangle():
+    for i in range(3):
+        sendmsg('forward 100')
+        sendmsg('cw 120')
 
 
 print("\nSullivan Abegg")
-print("Program Name: Squares&Triangles ")
-print("Date: 12/21/22 ")
+print("Program Name: Squares & Triangles ")
+print("Date: 12.21.22")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 ready = input('\nAre you ready to take flight: ')
@@ -67,7 +75,11 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 
-        square()
+        #square()
+
+        #triangle()
+
+        curve_circle()
 
         sendmsg('land')
 
