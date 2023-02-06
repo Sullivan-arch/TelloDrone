@@ -69,7 +69,7 @@ try:
 
         sendmsg('command', 0)
         sendmsg('battery?', 10)
-        sendmsg('streamon', 10)
+
         sendmsg('takeoff', 10)
 
         #firsthoop
